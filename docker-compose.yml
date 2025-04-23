@@ -1,0 +1,10 @@
+version: '3.8'
+name: viet-itn
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped # Optional: Restart policy
+    ports:
+      - "8006:8000"

@@ -1,5 +1,5 @@
 import argparse
-from viet_itn.normalize import inverse_normalize
+from src.normalize import InverseTextNormalizer
 
 
 def parse_args():
@@ -10,7 +10,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    result = inverse_normalize(args.input, args.verbose)
+    result = InverseTextNormalizer().inverse_normalize(args.input, args.verbose)
     print(result)
 
 if __name__ == "__main__":
