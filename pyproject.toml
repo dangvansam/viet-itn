@@ -1,0 +1,17 @@
+[project]
+name = "viet-itn"
+version = "0.1.0"
+description = "Vietnamese Inverse Text Normalizer"
+readme = "README.md"
+authors = [
+    { name = "Andrew", email = "andrew@techainer.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+viet-itn = "viet_itn:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
