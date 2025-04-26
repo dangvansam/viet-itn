@@ -1,79 +1,118 @@
-# Vietnamese Inverse Text Normalization API
+<!-- # Vietnamese Inverse Text Normalization API -->
+<p align="center">
+  <img src="assets/viet-itn-logo.png" style="width: 180px">
+  <h1 align="center" style="color: white; font-weight: bold; font-family:roboto">
+    <span style="color: white;">VietITN</span>: Vietnamese Inverse Text Normalization API
+  </h1>
+</p>
 
-A simple web API built with FastAPI and Docker to perform Inverse Text Normalization (ITN) for Vietnamese text using the `pynini` library and pre-built grammars.
+<p align="center">
+  <a href="https://github.com/dangvansam/viet-itn"><img src="https://img.shields.io/github/stars/dangvansam/viet-itn?style=social"></a>
+  <a href="https://pypi.org/project/viet-itn" target="_blank"><img src="https://img.shields.io/pypi/v/viet-itn.svg" alt="PyPI">
+  <a href="https://github.com/dangvansam/viet-itn"><img src="https://img.shields.io/badge/Python-3.10-green"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/dangvansam/viet-itn"></a>
+  <br>
+  <a href="README.md"><img src="https://img.shields.io/badge/README-English-blue"></a>
+  <!-- <a href="README_VN.md"><img src="https://img.shields.io/badge/README-Tiếng Việt-red"></a> -->
+</p>
 
-## Features
+**VietITN** is a simple yet powerful REST API for Inverse Text Normalization (ITN) tailored for Vietnamese language, built with FastAPI and Docker. It leverages `pynini` and pre-built grammars to convert spoken-form text into its written form.
 
-*   **Inverse Text Normalization:** Converts spoken-form text to written form.
-*   **REST API:** Exposes normalization via a simple `/normalize` POST endpoint.
-*   **FastAPI:** Built using the modern and fast FastAPI framework.
-*   **Dockerized:** Easy setup and deployment using Docker and Docker Compose.
-*   **Health Check:** Includes a `/health` endpoint for monitoring.
-*   **Interactive Docs:** Automatic Swagger UI documentation available at `/docs`.
+---
 
-## Setup and Running
-1.  **Clone the repository (if applicable):**
-    ```bash
-    git clone https://github.com/dangvansam/viet-itn.git
-    cd viet-itn
-    ```
+## ⭐ Features
+- 🔁 **Inverse Text Normalization**: Converts spoken Vietnamese into standard written text.
+- 🚀 **FastAPI**: Lightweight and modern Python web framework.
+- 📦 **Dockerized**: Easily deployable with Docker and Docker Compose.
+- 📑 **Interactive API Docs**: Swagger UI automatically available at `/docs`.
+- ✅ **Health Check Endpoint**: Keep track of service status via `/health`.
 
-2.  **Build and run the container using Docker Compose:**
-    ```bash
-    docker-compose build
-    docker-compose up -d
-    ```
+---
 
-4.  **Access the API:**
-    The API will be available at `http://localhost:8000`.
+## 🛠️ Setup
 
-## API Usage
+### 1. Clone the Repository
+```bash
+git clone https://github.com/dangvansam/viet-itn.git
+cd viet-itn
+```
 
-### 1. Normalize Text
+### 2. Build & Run with Docker Compose
+```bash
+docker-compose build
+docker-compose up -d
+```
 
-Send a POST request to the `/normalize` endpoint with a JSON payload containing the text.
+### 3. Access the API
+Visit: [http://localhost:8000](http://localhost:8000)
 
+---
+
+## 📬 API Usage
+
+### 🔠 Normalize Text
 **Endpoint:** `POST /normalize`
 
 **Request Body:**
-
 ```json
 {
-  "text": "ngày hai mươi tháng mười một năm hai không hai ba",
+  "text": "ngày ba mươi tháng tư năm một chín bảy năm"
 }
 ```
 
-Example using curl:
+**Example with curl:**
 ```bash
 curl -X POST "http://localhost:8000/normalize" \
      -H "Content-Type: application/json" \
-     -d '{"text": "ngày hai mươi tháng mười một năm hai không hai ba"}'
+     -d '{"text": "ngày ba mươi tháng tư năm một chín bảy năm"}'
 ```
 
-Example Response:
-
+**Response:**
 ```json
 {
-  "normalized_text": "ngày 20 tháng 11 năm 2023"
+  "normalized_text": "ngày 30/4/1975"
 }
 ```
 
-### 2. Health Check
-Send a GET request to the /health endpoint to check if the API is running.
+---
 
+### ❤️ Health Check
 **Endpoint:** `GET /health`
-Example using curl:
+
+**Example:**
 ```bash
 curl http://localhost:8000/health
 ```
 
-Example Response:
+**Response:**
 ```json
 {
   "status": "ok"
 }
 ```
 
-### 3. Interactive Documentation
-FastAPI automatically generates interactive API documentation (Swagger UI). Access it in your browser:
+---
+
+### 📚 Interactive Documentation
+FastAPI provides built-in Swagger UI. Open your browser and go to:
+```
 http://localhost:8000/docs
+```
+
+---
+
+## 🙏 Acknowledgements
+- 🧠 Built on top of `pynini` grammars and inspired by work from the [NLP community](https://github.com/google-research/).
+<!-- - ✨ Uses ideas from projects like [VietTTS](https://github.com/dangvansam/viet-tts) and [Vinorm](https://github.com/v-nhandt21/Vinorm). -->
+
+---
+
+## 📜 License
+This project is licensed under the **Apache 2.0 License**.
+
+---
+
+## 💬 Contact
+- 🌐 Facebook: [fb.com/sam.rngd](https://fb.com/sam.rngd)
+- 🐙 GitHub: [dangvansam](https://github.com/dangvansam)
+- 📧 Email: dangvansam98@gmail.com

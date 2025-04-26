@@ -2,6 +2,7 @@ version: '3.8'
 name: viet-itn
 services:
   api:
+    image: dangvansam/viet-itn:latest
     build:
       context: .
       dockerfile: Dockerfile

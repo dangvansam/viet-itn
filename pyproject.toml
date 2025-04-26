@@ -3,8 +3,9 @@ name = "viet-itn"
 version = "0.1.0"
 description = "Vietnamese Inverse Text Normalizer"
 authors = [
-    { name = "Andrew", email = "andrew@techainer.com" }
+    { name = "Sam Dang", email = "dangvansam98@gmail.com" }
 ]
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi",
