@@ -7,6 +7,8 @@ ENV UV_COMPILE_BYTECODE=1
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install gcc -y
+
 COPY pyproject.toml .
 COPY uv.lock .
 
