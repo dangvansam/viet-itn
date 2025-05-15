@@ -23,6 +23,11 @@ async def normalize_endpoint(request: NormalizationRequest):
     normalized = inverse_normalizer.inverse_normalize(request.text)
     return NormalizationResponse(normalized_text=normalized)
 
+@app.post("/normalize_2", response_model=NormalizationResponse)
+async def normalize_endpoint_2(request: NormalizationRequest):
+    normalized = inverse_normalizer.inverse_normalize_2(request.text)
+    return NormalizationResponse(normalized_text=normalized)
+
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
