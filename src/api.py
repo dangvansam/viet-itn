@@ -13,7 +13,7 @@ app = FastAPI(
 
 # LLM client configuration
 openai_api_key = "EMPTY"
-openai_api_base = "http://localhost:8001/v1"
+openai_api_base = "http://vllm:8000/v1"
 
 client = OpenAI(
     api_key=openai_api_key,

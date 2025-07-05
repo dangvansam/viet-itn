@@ -1,18 +1,16 @@
-FROM python:3.10-slim
+FROM python:3.11.6-slim
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
-ENV UV_COMPILE_BYTECODE=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PATH="/app/.venv/bin:$PATH"
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install gcc -y
 
 COPY pyproject.toml .
-
-RUN pip install --no-cache-dir uv
-RUN uv sync --frozen --no-install-project --no-dev
+RUN uv sync
 
 COPY src ./src
 

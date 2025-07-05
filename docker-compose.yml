@@ -2,7 +2,7 @@ version: '3.8'
 name: viet-itn
 services:
   api:
-    image: dangvansam/viet-itn:latest
+    image: dangvansam/viet-itn:qwen-reasoning-with-vllm
     build:
       context: .
       dockerfile: Dockerfile
