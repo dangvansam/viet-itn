@@ -10,7 +10,6 @@ WORKDIR /app
 RUN apt-get update && apt-get install gcc -y
 
 COPY pyproject.toml .
-COPY uv.lock .
 
 RUN pip install --no-cache-dir uv
 RUN uv sync --frozen --no-install-project --no-dev
